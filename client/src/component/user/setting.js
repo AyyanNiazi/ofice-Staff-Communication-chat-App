@@ -10,11 +10,11 @@ class Setting extends Component{
                 <div className='col-12' >
                     <img src={u1} width='180' height='180' style={{margin:'30px'}} />
                 </div>
-                <div className='col-12' >
+                <div className='col-12' style={{marginLeft:'5vw'}} >
                  <form>
                     <div class="form-group" style={{width:'80%',textAlign:'left'}}>
                         <label  for="exampleInputname">Username</label>
-                        <input type="name" style={{width:'100%'}} class="form-control" id="exampleInputname" aria-describedby="emailHelp" placeholder="Enter email"/>
+                        <input type="name" style={{width:'100%'}} class="form-control" id="exampleInputname" aria-describedby="emailHelp" placeholder="User name"/>
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
                     <div class="form-group" style={{width:'80%',textAlign:'left'}}>

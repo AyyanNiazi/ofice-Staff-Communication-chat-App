@@ -54,7 +54,7 @@ render(){
                       <h5 style={{textAlign:'center',color:'black',marginLeft:'20px'}}>Muhammad Arslan</h5>
                       <p>user2@gmail.com</p>
                       <div  id='manageSetting' >
-                          <Link to='/user/setting' style={{textDecoration:'none'}} >  <h6
+                          <Link to='/user/setting' style={{textDecoration:'none',color:'black'}} >  <h6
                           data-toggle="collapse" data-target="#collapseExample"
                           aria-expanded="false" aria-controls="collapseExample"> Manage Your Account </h6> </Link>
                       </div>

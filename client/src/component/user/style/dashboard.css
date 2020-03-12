@@ -118,11 +118,11 @@ body{
     transition: 0.6s ease-in-out;
     
 }
-#manageSetting:hover{
-    background-color: black;
-    border:1px solid white;
+#manageSetting:hover,#manageSetting:hover a{
+    background-color: #6C757D;
+    border:1px solid #6C757D;
     border-radius:10px;
     padding: 10px;
-    color: white;
+    color: white !important;
     cursor: pointer;
 }

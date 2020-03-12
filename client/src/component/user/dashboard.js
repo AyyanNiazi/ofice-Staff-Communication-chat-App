@@ -16,6 +16,7 @@ import u10 from '../images/u10.png'
 import bc from '../images/bc.png'
 import UserDashboard from './userDashboard'
 import Broadcast from './broadcast'
+import Setting from './setting'
 
  class Dashboard extends Component{
 
@@ -38,23 +39,45 @@ render(){
   return (
     
         <  >
+           <BrowserRouter>
            <div className='row' id='topNavDash' >
               <div className='col-6' id='navLeft' >
                  <h2>Growth Mates</h2> 
               </div>
-              <div className='col-6' id='navRight' >
-                  <h5> <img src={user} width='40' height='40' /> M.Arslan</h5>
+              <div className='col-6' id='navRight' style={{zIndex:'9'}} >
+                  <h5  type="button" data-toggle="collapse" data-target="#collapseExample"
+                   aria-expanded="false" aria-controls="collapseExample" > <img src={u1} width='50' height='50' /> </h5>
+
+                  <div class="collapse" id="collapseExample">
+                    <div class="" id='userInfo' >
+                      <img src={u2} width='80' height='80' style={{marginTop:'20px'}} />
+                      <h5 style={{textAlign:'center',color:'black',marginLeft:'20px'}}>Muhammad Arslan</h5>
+                      <p>user2@gmail.com</p>
+                      <div  id='manageSetting' >
+                          <Link to='/user/setting' style={{textDecoration:'none'}} >  <h6
+                          data-toggle="collapse" data-target="#collapseExample"
+                          aria-expanded="false" aria-controls="collapseExample"> Manage Your Account </h6> </Link>
+                      </div>
+
+                    <button 
+                    // data-toggle="collapse" data-target="#collapseExample"
+                    // aria-expanded="false" aria-controls="collapseExample"
+                    style={{marginTop:'10vh',position:'relative',bottom:'0px'}} 
+                    onClick={() => { this.props.history.push('/') } }
+                    className='btn btn-info btn-block' > Sign out </button>
+
+                    </div>
+                  </div>
               </div>
            </div>
 
            <div className='row' >
-           <BrowserRouter>
               <div className='col-lg-4' id='dashTopLeft' >
               <div id='scroller' >
                 <ul id='dashUl' >
-                  <li> <Link style={{textDecoration:'none', color:'black'}} to='/user/dashboard' >  <img src={db} width='40' height='40' style={{margin: '10px'}} /> Dashboard </Link> </li>
-                  <li> <Link style={{textDecoration:'none', color:'black'}} to='/user/broadcast' >  <img src={bc} width='40' height='40' style={{margin: '10px'}} /> Broadcast  </Link>   <span id='innerLi' > 1 </span> </li>
-                  <li> <img src={user} width='40' height='40' style={{margin: '10px'}} /> user 1</li>
+                <Link style={{textDecoration:'none', color:'black'}} to='/user/dashboard' > <li>   <img src={db} width='40' height='40' style={{margin: '10px'}} /> Dashboard  </li> </Link>
+                  <Link style={{textDecoration:'none', color:'black'}} to='/user/broadcast' > <li>  <img src={bc} width='40' height='40' style={{margin: '10px'}} /> Broadcast    <span id='innerLi' > 1 </span> </li> </Link> 
+                  <Link style={{textDecoration:'none', color:'black'}} to='/user/broadcast' >  <li> <img src={user} width='40' height='40' style={{margin: '10px'}} /> user 1</li> </Link>
                   <li> <img src={u1} width='40' height='40' style={{margin: '10px'}} />user 2</li>
                   <li><img src={u2} width='40' height='40' style={{margin: '10px'}} /> user 3</li>
                   <li><img src={u3} width='40' height='40' style={{margin: '10px'}} /> user 4</li>
@@ -71,10 +94,11 @@ render(){
                   <Switch>
                     <Route path='/user/dashboard' exact component={UserDashboard} />
                     <Route exact path='/user/broadcast' component={Broadcast} />
+                    <Route exact path='/user/setting' component={Setting} />
                   </Switch>
               </div>
-                </BrowserRouter>
            </div>
+                </BrowserRouter>
         </>
     )
  }

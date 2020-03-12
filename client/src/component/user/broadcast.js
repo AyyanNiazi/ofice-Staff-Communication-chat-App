@@ -13,7 +13,7 @@ import './style/broadcast.css'
     })
 }
 render(){
-   
+    console.log('broadcast') 
   return (
     
         <  >
@@ -34,6 +34,7 @@ render(){
                  <div className='col-6' >
                    {/* Reciever Section */}
                     <div id='reciever' >
+                    <p  id='rectext' >jhfdsasdasdbjadbasdhbjhd asbdjabdjhdjhdsd jhsdbjdsdsjdsd sbdjdjhas ashdbdas asdbasdjh  dfh</p>
                     <p  id='rectext' >jhfdsasdasdbjadbasdhbjhd asbdjabdjhdjhdsd jhsdbjdsdsjdsd sbdjdjhas ashdbdas asdbasdjh  dfh</p>
                     <p  id='rectext' >jhfdsasdasdbjadbasdhbjhd asbdjabdjhdjhdsd jhsdbjdsdsjdsd sbdjdjhas ashdbdas asdbasdjh  dfh</p>
                     <p  id='rectext' >jhfdsasdasdbjadbasdhbjhd asbdjabdjhdjhdsd jhsdbjdsdsjdsd sbdjdjhas ashdbdas asdbasdjh  dfh</p>

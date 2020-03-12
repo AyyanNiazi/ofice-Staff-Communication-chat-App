@@ -48,7 +48,7 @@ render(){
             <div id='loginInner' >
                 <form>
                 <h4 style={{marginBottom:'20px'}} >Login With GrowthMates</h4>
-                    <div class="form-group" style={{marginBottom:'40px'}}>
+                    <div class="form-group" style={{marginBottom:'40px',marginTop:'10vh'}}>
                         <label style={{float:'left'}}  for="exampleInputEmail1">Email address</label>
                         <input type="email" name='email' value={email} onChange={this.onChange} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
                         {/* <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> */}
@@ -62,12 +62,12 @@ render(){
                          style={{position:'absolute',top:'5.5vh',right:'10px', fontSize:'18px',cursor:'pointer'}}></i>
                     </div>
 
-                    <div class="form-group" style={{marginBottom:'40px',position:'relative'}}  >
+                    {/* <div class="form-group" style={{marginBottom:'40px',position:'relative'}}  >
                         <label style={{float:'left'}} for="exampleInputPassword1">Password</label>
                         
-                    </div>
+                    </div> */}
                    
-                    <button type="button" class="btn btn-primary btn-block" onClick={this.onSubmit.bind(this)} >Submit</button>
+                    <button style={{marginTop:'10vh'}} type="button" class="btn btn-info btn-block" onClick={this.onSubmit.bind(this)} >Submit</button>
                 </form>
             </div>
           </div>  

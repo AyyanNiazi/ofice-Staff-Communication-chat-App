@@ -3,7 +3,7 @@ body{
 
 }
 #topNavDash{
-    background-color: #2f2fA2;
+    background-color: #673AB7;
     height: 8vh;
 }
 
@@ -98,3 +98,31 @@ body{
   background: #555; 
 }
 
+#userInfo{
+    background-color: rgb(201, 198, 198);
+    width: 40vh;
+    height: 50vh;
+    float: right;
+    margin-right: 20px;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    align-items: center;
+    /* z-index: 9; */
+}
+
+#manageSetting{
+    border:1px solid #fff;
+    border-radius:10px;
+    padding: 10px;
+    transition: 0.6s ease-in-out;
+    
+}
+#manageSetting:hover{
+    background-color: black;
+    border:1px solid white;
+    border-radius:10px;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+}

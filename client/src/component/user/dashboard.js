@@ -50,20 +50,22 @@ render(){
            <div className='row' >
            <BrowserRouter>
               <div className='col-lg-4' id='dashTopLeft' >
+              <div id='scroller' >
                 <ul id='dashUl' >
                   <li> <Link style={{textDecoration:'none', color:'black'}} to='/user/dashboard' >  <img src={db} width='40' height='40' style={{margin: '10px'}} /> Dashboard </Link> </li>
                   <li> <Link style={{textDecoration:'none', color:'black'}} to='/user/broadcast' >  <img src={bc} width='40' height='40' style={{margin: '10px'}} /> Broadcast </Link></li>
                   <li> <img src={user} width='40' height='40' style={{margin: '10px'}} /> user 1</li>
                   <li> <img src={u1} width='40' height='40' style={{margin: '10px'}} />user 2</li>
                   <li><img src={u2} width='40' height='40' style={{margin: '10px'}} /> user 3</li>
-                  <li><img src={u3} width='40' height='40' style={{margin: '10px'}} /> user 3</li>
-                  <li><img src={u4} width='40' height='40' style={{margin: '10px'}} /> user 3</li>
-                  <li><img src={u5} width='40' height='40' style={{margin: '10px'}} /> user 3</li>
-                  <li><img src={u6} width='40' height='40' style={{margin: '10px'}} />user 3</li>
-                  <li><img src={u7} width='40' height='40' style={{margin: '10px'}} />user 3</li>
-                  <li><img src={u8} width='40' height='40' style={{margin: '10px'}} />user 3</li>
-                  <li><img src={u9} width='40' height='40' style={{margin: '10px'}} />user 3</li>
+                  <li><img src={u3} width='40' height='40' style={{margin: '10px'}} /> user 4</li>
+                  <li><img src={u4} width='40' height='40' style={{margin: '10px'}} /> user 5</li>
+                  <li><img src={u5} width='40' height='40' style={{margin: '10px'}} /> user 6</li>
+                  <li><img src={u6} width='40' height='40' style={{margin: '10px'}} />user 7</li>
+                  <li><img src={u7} width='40' height='40' style={{margin: '10px'}} />user 8</li>
+                  <li><img src={u8} width='40' height='40' style={{margin: '10px'}} />user 9</li>
+                  <li><img src={u9} width='40' height='40' style={{margin: '10px'}} />user 10</li>
                 </ul>
+              </div>
               </div>
               <div className='col-lg-8' >
                   <Switch>

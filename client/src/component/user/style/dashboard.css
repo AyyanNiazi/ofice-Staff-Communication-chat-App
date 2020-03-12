@@ -1,3 +1,7 @@
+body{
+    overflow-x: hidden;
+
+}
 #topNavDash{
     background-color: #2f2fA2;
     height: 8vh;
@@ -52,4 +56,31 @@
     cursor: pointer;
 }
 
+#scroller{
+    overflow-y: scroll;
+    /* width: 5vh; */
+    height: 90vh;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #fff; 
+
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #00796B; 
+
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
 

@@ -53,7 +53,7 @@ render(){
               <div id='scroller' >
                 <ul id='dashUl' >
                   <li> <Link style={{textDecoration:'none', color:'black'}} to='/user/dashboard' >  <img src={db} width='40' height='40' style={{margin: '10px'}} /> Dashboard </Link> </li>
-                  <li> <Link style={{textDecoration:'none', color:'black'}} to='/user/broadcast' >  <img src={bc} width='40' height='40' style={{margin: '10px'}} /> Broadcast </Link></li>
+                  <li> <Link style={{textDecoration:'none', color:'black'}} to='/user/broadcast' >  <img src={bc} width='40' height='40' style={{margin: '10px'}} /> Broadcast  </Link>   <span id='innerLi' > 1 </span> </li>
                   <li> <img src={user} width='40' height='40' style={{margin: '10px'}} /> user 1</li>
                   <li> <img src={u1} width='40' height='40' style={{margin: '10px'}} />user 2</li>
                   <li><img src={u2} width='40' height='40' style={{margin: '10px'}} /> user 3</li>

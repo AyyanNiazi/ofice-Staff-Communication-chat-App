@@ -42,7 +42,20 @@ body{
     box-shadow: 2px 4px 10px 2px rgb(184, 177, 177);
     border-radius: 8px;
     text-align: left;
+    position: relative;
 
+}
+
+#innerLi{
+    position: absoluet;
+    top: 20px;
+    right: 0px;
+    text-align: right;
+    float: right;
+    background-color: #E91E63;
+    border-radius: 50%;
+    padding: 1px 8px;
+    color: #fff;
 }
 
 #dashUl li:hover{
@@ -64,7 +77,7 @@ body{
 
 ::-webkit-scrollbar {
   width: 8px;
-  border-radius: 10px;
+  /* border-radius: 90px; */
 }
 
 /* Track */
@@ -76,6 +89,7 @@ body{
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #00796B; 
+  border-radius: 30px;
 
 }
 

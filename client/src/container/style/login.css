@@ -1,5 +1,5 @@
 #topBanner{
-    background-color: #673AB7;
+    background-color: #2f2fA2;
     height: 40vh;
     position: relative;
     
@@ -9,10 +9,10 @@
     position: absolute;
     display: flex;
     top: 20vh;
-    left: 31vw;
+    left: 29vw;
     background-color: #fff;
     padding: 30px;
-    height: 70vh;
+    height: 60vh;
     width: 40vw;
     box-shadow: 2px 4px 10px 2px rgb(184, 177, 177);
     border-radius: 10px;

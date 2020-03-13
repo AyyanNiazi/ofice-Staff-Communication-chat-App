@@ -17,5 +17,8 @@ export const EMPTY_CART = "EMPTY_CART";
 export const PRODUCTS = "PRODUCTS";
 export const ADD_IMAGE = "ADD_IMAGE";
 export const GET_IMAGES = "GET_IMAGES";
+export const GET_CHATS = "GET_CHATS";
+export const SEND_MESSAGE = "SEND_MESSAGE";
+
 
 

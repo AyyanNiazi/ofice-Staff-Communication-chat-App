@@ -26,7 +26,7 @@ class Setting extends Component{
                         <label for="exampleInputPassword1">Password</label>
                         <input style={{width:'80%',}} type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"/>
                     </div>             
-                    <button style={{width:'80%',marginTop:'40px'}} type="submit" class="btn btn-info btn-block">Update  </button>
+                    <button style={{width:'80%',marginTop:'40px'}} type="button" class="btn btn-info btn-block">Update  </button>
                  </form>
                 </div>
             </div>   

@@ -39,12 +39,12 @@ render(){
              </div>
              <div className='col-lg-3' id='secnd' >
                  <div id='sinner' >
-                    <h4><img src={ntsk} width='50' height='55' style={{paddingBottom:'5px'}} /> New Task</h4>
+                    <h4 style={{textAlign:'left'}} ><img src={ntsk} width='50' height='55' style={{paddingBottom:'5px'}} /> New Task</h4>
                 </div> 
              </div>
              <div className='col-lg-3' id='third'>
                   <div id='tinner' >
-                    <h5> <img src={ptsk} width='50' height='50' style={{paddingBottom:'5px'}} /> Pending Task   </h5>
+                    <h5 style={{textAlign:'left'}}> <img src={ptsk} width='50' height='50' style={{paddingBottom:'5px'}} /> Pending Task   </h5>
                 </div> 
              </div>
          </div>
@@ -53,18 +53,18 @@ render(){
          <div className='row' style={{marginTop:'10px'}}>
              <div className='col-lg-3' id='first1' >
                 <div id='finner' >
-                    <h4> <img src={grp} width='50' height='50' /> Create Group </h4><br/>
+                    <h4 style={{textAlign:'left'}}> <img src={grp} width='50' height='50' /> Create Group </h4><br/>
                    
                 </div>  
              </div>
              <div className='col-lg-3' id='secnd1' >
                  <div id='sinner' >
-                    <h5 style={{marginTop:'13px'}} ><img src={stpc} width='50' height='50' /> Start Any Topic </h5>
+                    <h5 style={{marginTop:'13px',textAlign:'left'}} ><img src={stpc} width='50' height='50' /> Start Any Topic </h5>
                 </div> 
              </div>
              <div className='col-lg-3' id='third1'>
                   <div id='tinner' >
-                    <h4 style={{marginTop:'10px',marginLeft:'-30px'}}> <img src={grp} width='50' height='50' /> Review </h4>
+                    <h4 style={{marginTop:'10px',textAlign:'left'}}> <img src={grp} width='50' height='50' /> Review </h4>
                 </div> 
              </div>
          </div>

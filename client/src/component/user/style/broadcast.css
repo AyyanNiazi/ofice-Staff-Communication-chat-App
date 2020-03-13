@@ -51,7 +51,9 @@
 
 #reciever{
     text-align: left;
-    margin: 30px;
+    margin-top: 5vh;
+    padding: 40px;
+    /* background-color: rgb(22, 21, 22); */
 }
 
 #rectext{
@@ -59,7 +61,10 @@
     background-color: #880E4F;
     border-radius: 8px ;
     color: white;
-    margin-right: 4vw;
+    margin: 0px;
+    margin-top: 5px;
+    border: 3px solid rgb(12, 12, 12);
+    /* margin-right: 4vw; */
 }
 
 #rectext:hover{
@@ -69,7 +74,7 @@
 
 #sender{
     text-align: right;
-    margin-left: 30px;
+    margin-left: 35vw;
 }
 
 #sendtext{
@@ -77,9 +82,16 @@
     background-color: #00796B;
     border-radius: 8px ;
     color: white;
-    margin-left: 40vw;
+    /* margin-left: 40vw; */
 }
-
+#downArrow{
+    background-color: #E91E63;
+    border-radius: 50%;
+    position: fixed;
+    z-index: 9;
+    bottom: 12vh;
+    right: 6vw;
+}
 #sendtext:hover{
     
     background-color: rgb(3, 139, 124);

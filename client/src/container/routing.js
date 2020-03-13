@@ -1,38 +1,44 @@
 import React, {Component,Lazy,Suspense} from 'react';
-// import 
-//  {getProducts}
-//   from "../actions/productsAction";
-  
+import 
+ {getChats}
+  from "../actions/chatAction";
+import PrivateRoute from "../component/private-route/PrivateRoute";  
 import {BrowserRouter ,Route, Switch} from 'react-router-dom';
 // import {connect} from 'react-redux'
 // import jwt_decode from "jwt-decode";
-// import setAuthToken from "../utils/setAuthToken";
-// import { setCurrentUser, logoutUser } from "../actions/authActions";
+import jwt_decode from "jwt-decode";
+import setAuthToken from "../utils/setAuthToken";
+import { setCurrentUser, logoutUser } from "../actions/authActions";
 // import { Provider } from "react-redux";
-// import store from "../store";
+import store from "../store";
 import Login from './login'
 import Dashboard from '../component/user/dashboard.js'
 import NoMatch from './not-found.js'  
+import socketIOClient from "socket.io-client"
+import { connect } from 'react-redux';
+export const socket = socketIOClient("http://localhost:5000");
 // import AllImages from './AllImages'
 
 // Check for token to keep user logged in
-// if (localStorage.jwtToken) {
-//     // Set auth token header auth
-//     const token = localStorage.jwtToken;
-//     setAuthToken(token);
-//     // Decode token and get user info and exp
-//     const decoded = jwt_decode(token);
-//     // Set user and isAuthenticated
-//     store.dispatch(setCurrentUser(decoded));
-//   // Check for expired token
-//     const currentTime = Date.now() / 1000; // to get in milliseconds
-//     if (decoded.exp < currentTime) {
-//       // Logout user
-//       store.dispatch(logoutUser());
-//       // Redirect to login
-//       window.location.href = "./combined";
-//     }
-//   }
+if (localStorage.jwtToken) {
+    // Set auth token header auth
+    socket.emit("view-chats");
+
+    const token = localStorage.jwtToken;
+    setAuthToken(token);
+    // Decode token and get user info and exp
+    const decoded = jwt_decode(token);
+    // Set user and isAuthenticated
+    store.dispatch(setCurrentUser(decoded));
+  // Check for expired token
+    const currentTime = Date.now() / 1000; // to get in milliseconds
+    if (decoded.exp < currentTime) {
+      // Logout user
+      store.dispatch(logoutUser());
+      // Redirect to login
+      window.location.href = "/";
+    }
+  }
 
 
   // 404 page not found
@@ -54,6 +60,7 @@ import NoMatch from './not-found.js'
 
 
 render(){
+  this.props.getChats()
 //  console.log('routing ka render==---->',this.props)
 // this.props.getProducts('Routing')
 //   // const information = window.location.pathname='/information'
@@ -73,7 +80,7 @@ render(){
             {/* <Navbar/> */}
             <Switch>
               <Route exact path='/' component={Login} />
-              <Route path='/user/dashboard/' component={Dashboard} />
+              <PrivateRoute path='/user/dashboard/' component={Dashboard} />
             </Switch>
             {/* <Footer /> */}
            </BrowserRouter>    
@@ -82,13 +89,13 @@ render(){
  }
 }
 
-const mapStateToProps = (state) =>{
-  // var array= Array.from(state.products.cartProducts)
-  console.log("Reducer check cart prod.............", state.cartReducer.totalPrice)
-  return{ 
-      pathChecker: state.products.pathChecker,
+// const mapStateToProps = (state) =>{
+//   // var array= Array.from(state.products.cartProducts)
+//   console.log("Reducer check cart prod.............", state.cartReducer.totalPrice)
+//   return{ 
+//       pathChecker: state.products.pathChecker,
      
-  }
-}
+//   }
+// }
 
-export default Routes
+export default connect(null,{getChats})(Routes)

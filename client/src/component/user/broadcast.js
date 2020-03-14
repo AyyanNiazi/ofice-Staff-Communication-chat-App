@@ -3,6 +3,7 @@ import {Redirect, BrowserRouter,Route,Switch} from 'react-router-dom'
 import { HashLink } from 'react-router-hash-link';
 import smsg from '../images/smsg.png'
 import down from '../images/down.png'
+import gallery from '../images/gallery.png'
 import './style/broadcast.css'
 import {getChats} from '../../actions/chatAction'
 import { connect } from 'react-redux';
@@ -78,34 +79,28 @@ componentWillReceiveProps(nextProps){
   //     }
   // })
 }
-onEnter = (e) => {
-  this.setState({
-    enterArrow:false
-  })
-  console.log(e.keyCode)
-  if(e.keyCode == 13 && e.shiftKey == false) {
-    e.preventDefault();
-    // this.myFormRef.submit();
-    var data={
-      name:this.state.user.name,
-      id:this.state.user.id,
-      message:this.state.message,
-      image:this.state.image
-  }
-  
-  socket.emit("Chat",data)
-  const rawChat= this.state.chats
-    rawChat.push(data)
-  this.setState({message:'',chats:rawChat})
-  }
-//   if(e.keyCode == 18){
-//       return  (
-//       <HashLink to='/user/broadcast#target' >
-// adadda
-//       </HashLink>)
-    
+
+// onEnter = (e) => {
+//   this.setState({
+//     enterArrow:false
+//   })
+//   console.log(e.keyCode)
+//   if(e.keyCode == 13 && e.shiftKey == false) {
+//     e.preventDefault();
+//     // this.myFormRef.submit();
+//     var data={
+//       name:this.state.user.name,
+//       id:this.state.user.id,
+//       message:this.state.message,
+//       image:this.state.image
 //   }
-}
+  
+//   socket.emit("Chat",data)
+//   const rawChat= this.state.chats
+//     rawChat.push(data)
+//   this.setState({message:'',chats:rawChat})
+  // }
+// }
 onSend=(e)=>{
   e.preventDefault();
 console.log('form sy',e.keyCode)
@@ -176,23 +171,24 @@ render(){
               <div id='mainBroadcast' >
                 
                 <div className='row' id='messageScreen'>
-                  <div className='col-6' >
+                  <div className='col-lg-6' >
                     {/* Reciever Section */}
-                     <div id='reciever' >
-                     {this.state.chats?
+                     <div id='' >
+                      {this.state.chats?
                                  this.state.chats.map((item,index)=>{
                                      return(
-                                      <div>
-                                        {item.id==id? <div id='sender' className='col-12' >
+                                      <div id='messTop' >
+                                        {item.id==id?
+                                         <div id='sender' className='col-12' >
                                           <p  id='sendtext' >{item.message}</p>
                                             {index===chats.length-1  ? <span id='target' ></span> :void 0  }
                                             {/* { this.state.chats!==undefined  ? index===chats.length-1 ? <span id='target' >  sdf </span> :<p>pehla</p>  : <p>dusra</p> } */}
                                            {/* {this.state.targeted} */}
                                         
                                           </div>
-                                       :<div id='receiver '  >
+                                       :<div id='receiver'  >
                                           <span  > 
-                                         <p style={{fontWeight:600,marginBottom:'0px',marginTop:'20px'}} >   {item.name} </p>
+                                         <p style={{fontWeight:600,marginBottom:'0px',marginTop:'20px',textAlign:'left'}} >   {item.name} </p>
 
                                           </span>
                                          <p style={{color:'#fff'}} id='rectext'> {item.message} </p>
@@ -217,30 +213,17 @@ render(){
                     </HashLink>
                     : void 0}
                      </div>
-                  </div>
-                  <div  >
-                  {/* <a >sdsd</a> */}
-
-                    <h1></h1>
-                  </div>              
-
+                  </div>   
                 </div>
                  <div id='innerBottom' >
                    <div className='row' >                   
-                     <div className='col-10' id='inputDiv' >
-                    <form ref={el => this.myFormRef = el} >
-                      <HashLink smooth to='/user/broadcast#target' >     
-
-                     <input onKeyDown={this.onEnter} value={this.state.message} name='message' onChange={this.onChange.bind(this)}  type='text' id='textField' placeholder='Start Message' />
-                     </HashLink>>
-                    </form>
+                     <div  className= 'col-lg-10 col-xs-8 col-xs-8'  id='inputDiv' >
+                        <input style={!this.state.message? {width:'60vw'} : void 0 } value={this.state.message} name='message' onChange={this.onChange.bind(this)}  type='text' id='textField' placeholder='Start Message' />                     
+                         <img style={!this.state.message? {right:'-50px'} : void 0 } src={gallery} width='30' height='40' id='gallery' onClick={this.imagePicker.bind(this)} />                    
+                         <input type='file' style={{display:'none'}} ref="fileUploader"  />
  
-                     <img src={smsg} width='20' height='20' id='gallery' onClick={this.imagePicker.bind(this)} />
- 
-                     <input type='file' style={{display:'none'}} ref="fileUploader"  />
- 
-                     </div>
-                     <div className='col-2' style={{textAlign:'left'}}  >
+                      </div>
+                     <div className=' col-lg-2 col-xs-3 col-sm-3' style={{textAlign:'left'}} id='send' >
                        {!this.state.message ? void 0
                        :
                        (<HashLink smooth to='/user/broadcast#target' >     

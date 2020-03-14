@@ -3,7 +3,7 @@ import
  {getChats}
   from "../actions/chatAction";
 import PrivateRoute from "../component/private-route/PrivateRoute";  
-import {BrowserRouter ,Route, Switch} from 'react-router-dom';
+import {BrowserRouter ,Route, Switch, Redirect} from 'react-router-dom';
 // import {connect} from 'react-redux'
 // import jwt_decode from "jwt-decode";
 import jwt_decode from "jwt-decode";
@@ -16,6 +16,9 @@ import Dashboard from '../component/user/dashboard.js'
 import NoMatch from './not-found.js'  
 import socketIOClient from "socket.io-client"
 import { connect } from 'react-redux';
+import UserDashboard from '../component/user/userDashboard';
+import broadcast from '../component/user/broadcast';
+import Setting from '../component/user/setting';
 export const socket = socketIOClient("http://localhost:5000");
 // import AllImages from './AllImages'
 
@@ -61,6 +64,16 @@ if (localStorage.jwtToken) {
 
 render(){
   this.props.getChats()
+  const path = window.location
+  console.log({...path})
+  if(this.props.auth){
+    // return(
+      // <div>adbjkd</div>
+      // <BrowserRouter> 
+      //   {/* <Redirect to='/user/dashboard/' /> */}
+      // </BrowserRouter>
+    // )
+  }
 //  console.log('routing ka render==---->',this.props)
 // this.props.getProducts('Routing')
 //   // const information = window.location.pathname='/information'
@@ -73,29 +86,56 @@ render(){
 //     console.log('admin aya hy ry baba')
 //     var adminAndCartOwner = true
 //   }
-  return (
-    
-        <div>
-           <BrowserRouter>
-            {/* <Navbar/> */}
+
+return (
+  this.props.auth && window.location.pathname==='/user/broadcast' || window.location.pathname==='/user/broadcast#target' ||  window.location.pathname==='/user/setting'?
+  <BrowserRouter> 
+  {!this.props.auth? <div>  <Redirect to='/user/dashboard/' /><Route exact path='/' component={Login} />  </div>: void 0} 
+  <Redirect to='/user/dashboard/' />
+  <PrivateRoute path='/user/dashboard/' component={Dashboard} />
+  {/* {window.location.reload()} */}
+</BrowserRouter>
+:
+    <div>
+    {/* {!this.props.auth ?  */}
+           <BrowserRouter>                      
             <Switch>
               <Route exact path='/' component={Login} />
               <PrivateRoute path='/user/dashboard/' component={Dashboard} />
+              {/* <Route path='/user/dashboard' exact component={UserDashboard} />
+              <Route exact path='/user/broadcast' component={broadcast} />
+              <Route exact path='/user/setting' component={Setting} /> */}
             </Switch>
-            {/* <Footer /> */}
-           </BrowserRouter>    
+              
+           </BrowserRouter> 
+          {/* //  :
+          //  <BrowserRouter>     
+          //  <div className='col-lg-3' >
+          //    <PrivateRoute path='/user/dashboard/' component={Dashboard} />
+          //  </div>  
+
+          //   <div  className='col-lg-9'>
+          //  <Switch>
+          //    <Route path='/user/dashboard' exact component={UserDashboard} />
+          //    <Route exact path='/user/broadcast' component={broadcast} />
+          //    <Route exact path='/user/setting' component={Setting} />
+          //  </Switch>             
+          //   </div>
+          // </BrowserRouter> 
+      // }    */}
         </div>
     )
+    
  }
 }
 
-// const mapStateToProps = (state) =>{
-//   // var array= Array.from(state.products.cartProducts)
-//   console.log("Reducer check cart prod.............", state.cartReducer.totalPrice)
-//   return{ 
-//       pathChecker: state.products.pathChecker,
+const mapStateToProps = (state) =>{
+  // var array= Array.from(state.products.cartProducts)
+  console.log("Reducer rtng sy prod.............", state.auth)
+  return{ 
+      auth: state.auth.user.name,
      
-//   }
-// }
+  }
+}
 
-export default connect(null,{getChats})(Routes)
+export default connect(mapStateToProps,{getChats})(Routes)

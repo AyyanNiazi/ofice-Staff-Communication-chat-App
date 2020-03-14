@@ -130,7 +130,7 @@ render(){
            </div>
 
            <div className='row' id='responsive' >
-              <div className='col-lg-4 col-xs-4' id={this.state.leftResp===true ? 'dashTopLeft': void 0} >
+              <div className='col-lg-4 col-xs-12 col-xs-12' id={this.state.leftResp===true ? 'dashTopLeft': void 0} >
               <div id='scroller' >
                 <ul id='dashUl' >
                 <Link style={{textDecoration:'none', color:'black'}} to='/user/dashboard' > <li>   <img src={db} width='40' height='40' style={{margin: '10px'}} /> Dashboard  </li> </Link>

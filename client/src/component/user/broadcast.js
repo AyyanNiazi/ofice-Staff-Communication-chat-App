@@ -145,7 +145,18 @@ console.log(e.target.files)
     })
 }
 render(){
-  console.log(this.state)
+  let x = function(){
+    if(true){
+      console.log(v)
+      // console.log(l)
+      var v = 10;
+      let l= 2;
+    }
+  }
+  console.log(x())
+  let splits;
+  let inputs;
+  // console.log(this.state)
  
   if(!this.state.user){
    return <h1>loading...</h1>
@@ -176,11 +187,20 @@ render(){
                      <div id='' >
                       {this.state.chats?
                                  this.state.chats.map((item,index)=>{
+                                   splits = item.message.match(/(.{1,25})/g)
+                                  //  splits.match(/(.{1,2})/g)
+                                  
                                      return(
                                       <div id='messTop' >
                                         {item.id==id?
                                          <div id='sender' className='col-12' >
-                                          <p  id='sendtext' >{item.message}</p>
+                                          <p  id='sendtext' >
+                                            {splits.map(i => 
+                                              { 
+                                                return <p  > {i} </p> } )
+                                               } 
+                                          
+                                          </p>
                                             {index===chats.length-1  ? <span id='target' ></span> :void 0  }
                                             {/* { this.state.chats!==undefined  ? index===chats.length-1 ? <span id='target' >  sdf </span> :<p>pehla</p>  : <p>dusra</p> } */}
                                            {/* {this.state.targeted} */}
@@ -188,10 +208,17 @@ render(){
                                           </div>
                                        :<div id='receiver'  >
                                           <span  > 
-                                         <p style={{fontWeight:600,marginBottom:'0px',marginTop:'20px',textAlign:'left'}} >   {item.name} </p>
+                                         <p style={{fontWeight:600,marginBottom:'0px',marginTop:'20px',textAlign:'left'}} >   
+                                          {item.name}
+                                          </p>
 
                                           </span>
-                                         <p style={{color:'#fff'}} id='rectext'> {item.message} </p>
+                                         <p style={{color:'#fff'}} id='rectext'> 
+                                           {splits.map(i => 
+                                              { 
+                                                return <p  > {i} </p> } )
+                                               }
+                                          </p>
                                          {index===chats.length-1 ? <span id='target' ></span> :void 0  }                                         
                                          {/* { this.state.chats!==undefined  ? index===chats.length-1 ? <span id='target' >  sdf </span> : <p>pehla</p>  : <p>dusra</p> } */}
                                          {/* {this.props.chats?this.props.chats.length-1 :void 0} */}
@@ -218,12 +245,21 @@ render(){
                  <div id='innerBottom' >
                    <div className='row' >                   
                      <div  className= 'col-lg-10 col-xs-8 col-xs-8'  id='inputDiv' >
-                        <input style={!this.state.message? {width:'60vw'} : void 0 } value={this.state.message} name='message' onChange={this.onChange.bind(this)}  type='text' id='textField' placeholder='Start Message' />                     
-                         <img style={!this.state.message? {right:'-50px'} : void 0 } src={gallery} width='30' height='40' id='gallery' onClick={this.imagePicker.bind(this)} />                    
+                       { 
+                        inputs = this.state.message.match(/(.{1,5})/g)}
+                        {console.log(inputs, 'input k lye')
+                        
+                       }
+                        <input  value={ inputs ? inputs.map((i,ind) => {return inputs[ind] } ) : void 0
+                          // inputs? inputs.map(i => {return (<span> {console.log('input k andr sy ,' ,i)} </span>)}) : void 0
+                        } name='message' onChange={this.onChange.bind(this)}  
+                        type='text' id='textField' placeholder='Start Message' />                     
+                         <img  src={gallery} width='30' height='40' id='gallery' onClick={this.imagePicker.bind(this)} />                    
                          <input type='file' style={{display:'none'}} ref="fileUploader"  />
  
                       </div>
                      <div className=' col-lg-2 col-xs-3 col-sm-3' style={{textAlign:'left'}} id='send' >
+                      
                        {!this.state.message ? void 0
                        :
                        (<HashLink smooth to='/user/broadcast#target' >     

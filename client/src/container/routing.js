@@ -91,8 +91,8 @@ return (
   this.props.auth && window.location.pathname==='/user/broadcast' || window.location.pathname==='/user/broadcast#target' ||  window.location.pathname==='/user/setting'?
   <BrowserRouter> 
   {!this.props.auth? <div>  <Redirect to='/user/dashboard/' /><Route exact path='/' component={Login} />  </div>: void 0} 
-  <Redirect to='/user/dashboard/' />
-  <PrivateRoute path='/user/dashboard/' component={Dashboard} />
+  <Redirect to='/user/dashboard' />
+  <PrivateRoute path='/user/dashboard' component={Dashboard} />
   {/* {window.location.reload()} */}
 </BrowserRouter>
 :
@@ -101,7 +101,7 @@ return (
            <BrowserRouter>                      
             <Switch>
               <Route exact path='/' component={Login} />
-              <PrivateRoute path='/user/dashboard/' component={Dashboard} />
+              <PrivateRoute path='/user/dashboard' component={Dashboard} />
               {/* <Route path='/user/dashboard' exact component={UserDashboard} />
               <Route exact path='/user/broadcast' component={broadcast} />
               <Route exact path='/user/setting' component={Setting} /> */}

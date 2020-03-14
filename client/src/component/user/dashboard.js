@@ -64,7 +64,7 @@ componentDidMount(){
 UNSAFE_componentWillReceiveProps(nextProps) {
 let newMessage = this.state.newMessage;
 if(nextProps.chats){
-  console.log('dashboard ka will=>',nextProps.chats)
+  // console.log('dashboard ka will=>',nextProps.chats)
     let myId = this.state.currentUser.id
     let newLength = nextProps.chats.length;  
     let lastPerson = nextProps.chats[newLength-1]
@@ -81,7 +81,7 @@ if(nextProps.chats){
           final: final,
           toggle:false
         })
-        console.log(final,'new wala')
+        // console.log(final,'new wala')
     }
 
   }
@@ -92,7 +92,7 @@ render(){
       filtered = this.props.chats.filter(e => {
         return e.id !== this.props.auth.user.id
       }) 
-      console.log(filtered,this.props.auth.user.id)
+      // console.log(filtered,this.props.auth.user.id)
    }
   return (
     
@@ -152,6 +152,7 @@ render(){
                 </ul>
               </div>
               </div>
+              {/* {this.state.leftResp===true ? */}
               <div className='col-lg-8 col-xs-8' id='dashTopRight'>
                   <Switch>
                     <Route path='/user/dashboard' exact component={UserDashboard} />
@@ -159,6 +160,8 @@ render(){
                     <Route exact path='/user/setting' component={Setting} />
                   </Switch>
               </div>
+          {/* :void 0   */}
+        {/* } */}
            </div>
                 </BrowserRouter>
         </>

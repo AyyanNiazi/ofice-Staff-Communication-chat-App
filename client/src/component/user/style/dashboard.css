@@ -180,6 +180,11 @@ body{
         margin-top: 10px;
     
     }
+    body{
+        overflow-y: hidden;
+        /* width: 5vh; */
+        height: 90vh;
+    }
     /* #navRight h5 img{
         margin-top: -4px;
         margin-right: -20px;
@@ -187,7 +192,7 @@ body{
         height: 80px;
     } */
     #topNavDash{
-        width: 100%;
+        /* width: 100%; */
     }
 }
 @media only screen and (min-width: 768px) {
